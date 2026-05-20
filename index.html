@@ -1,245 +1,282 @@
-<!DOCTYPE html>  <html lang="hi">  
-<head>  
-<meta charset="UTF-8"/>  
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
-<title>Daily Basket 🧺 — ताज़ी सब्ज़ी 30 मिनट में | भोपालगढ़</title>  
-<meta name="description" content="भोपालगढ़ का सबसे तेज़ ग्रोसरी डिलीवरी ऐप। ताज़ी सब्ज़ी, फल, दूध 30 मिनट में घर पर।"/>  
-<link rel="preconnect" href="https://fonts.googleapis.com"/>  
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Sans+Devanagari:wght@400;600;700;800&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>  
-<style>  
-:root{--g:#3DFF7A;--g2:#00C44F;--bg:#060906;--card:#0D1A0D;--t:#F0FFF0;--t2:#A8C8A8;--t3:#5A7A5A;--gold:#D4AF37;}  
-*{margin:0;padding:0;box-sizing:border-box;}  
-html{scroll-behavior:smooth;}  
-body{background:var(--bg);color:var(--t);font-family:'Noto Sans Devanagari','DM Sans',sans-serif;overflow-x:hidden;}  
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,9,6,.88);backdrop-filter:blur(20px);border-bottom:1px solid rgba(61,255,122,.08);}  
-.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;}  
-.nav-logo span{color:var(--g);}  
-.nav-cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--g),var(--g2));color:#060906;font-family:'Noto Sans Devanagari',sans-serif;font-weight:700;font-size:13px;padding:10px 20px;border-radius:50px;text-decoration:none;transition:all .3s;}  
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding:100px 20px 60px;text-align:center;overflow:hidden;}  
-.hero-glow{position:absolute;top:-10%;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(61,255,122,.1) 0%,transparent 70%);pointer-events:none;}  
-.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(61,255,122,.08);border:1px solid rgba(61,255,122,.2);border-radius:50px;padding:8px 18px;font-size:14px;font-weight:600;color:var(--g);margin-bottom:28px;}  
-.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--g);animation:pulse 1.5s infinite;}  
-.hero h1{font-family:'Noto Sans Devanagari',sans-serif;font-size:clamp(40px,9vw,78px);font-weight:800;line-height:1.2;margin-bottom:20px;}  
-.hero h1 span{color:var(--g);}  
-.hero-sub{font-size:clamp(15px,2.5vw,18px);color:var(--t2);max-width:520px;line-height:1.9;margin-bottom:16px;}  
-.hero-loc{font-size:14px;color:var(--t3);margin-bottom:36px;}  
-.hero-loc span{color:var(--g);font-weight:600;}  
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:50px;}  
-.btn-p{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--g),var(--g2));color:#060906;font-family:'Noto Sans Devanagari',sans-serif;font-weight:700;font-size:16px;padding:16px 32px;border-radius:50px;text-decoration:none;transition:all .3s;box-shadow:0 0 30px rgba(61,255,122,.25);}  
-.btn-p:hover{transform:translateY(-2px);}  
-.btn-s{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--t);font-family:'Noto Sans Devanagari',sans-serif;font-weight:600;font-size:15px;padding:15px 28px;border-radius:50px;border:1px solid rgba(255,255,255,.15);text-decoration:none;transition:all .3s;}  
-.btn-s:hover{border-color:rgba(61,255,122,.4);color:var(--g);}  
-.stats{display:flex;gap:40px;justify-content:center;}  
-.stat-num{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--g);}  
-.stat-label{font-size:13px;color:var(--t3);margin-top:4px;}  
-.sec{padding:80px 20px;max-width:1100px;margin:0 auto;}  
-.sec-badge{display:inline-block;background:rgba(61,255,122,.08);border:1px solid rgba(61,255,122,.15);border-radius:50px;padding:6px 16px;font-size:12px;font-weight:700;color:var(--g);letter-spacing:1px;margin-bottom:14px;}  
-.sec-title{font-size:clamp(28px,5vw,46px);font-weight:700;line-height:1.25;margin-bottom:14px;}  
-.sec-sub{font-size:15px;color:var(--t2);line-height:1.8;max-width:500px;}  
-.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:44px;}  
-.fc{background:var(--card);border:1px solid rgba(61,255,122,.07);border-radius:22px;padding:26px;transition:all .3s;}  
-.fc:hover{border-color:rgba(61,255,122,.2);transform:translateY(-4px);}  
-.fc-icon{font-size:36px;margin-bottom:14px;display:block;}  
-.fc-title{font-size:17px;font-weight:700;margin-bottom:8px;}  
-.fc-desc{font-size:13px;color:var(--t2);line-height:1.8;}  
-.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:44px;}  
-.step{text-align:center;padding:20px;}  
-.step-n{width:60px;height:60px;border-radius:18px;background:linear-gradient(135deg,#1A3320,#0E2318);border:1.5px solid rgba(61,255,122,.3);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--g);margin:0 auto 14px;}  
-.step-t{font-size:16px;font-weight:700;margin-bottom:8px;}  
-.step-d{font-size:13px;color:var(--t2);line-height:1.7;}  
-.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin-top:36px;}  
-.pc{background:var(--card);border:1px solid rgba(61,255,122,.07);border-radius:18px;padding:18px 12px;text-align:center;transition:all .3s;}  
-.pc:hover{transform:translateY(-4px);border-color:rgba(61,255,122,.2);}  
-.pc-e{font-size:40px;display:block;margin-bottom:8px;}  
-.pc-tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:50px;margin-bottom:7px;}  
-.tf{background:rgba(61,255,122,.1);color:var(--g);border:1px solid rgba(61,255,122,.2);}  
-.to{background:rgba(0,196,79,.1);color:#00C44F;border:1px solid rgba(0,196,79,.2);}  
-.tl{background:rgba(212,175,55,.1);color:var(--gold);border:1px solid rgba(212,175,55,.2);}  
-.pc-n{font-size:13px;font-weight:600;margin-bottom:4px;}  
-.pc-p{font-size:13px;font-weight:700;color:var(--g);}  
-.rg{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:36px;}  
-.rc{background:var(--card);border:1px solid rgba(61,255,122,.07);border-radius:18px;padding:20px;}  
-.rc-stars{color:var(--gold);font-size:14px;margin-bottom:10px;}  
-.rc-text{font-size:13px;color:var(--t2);line-height:1.8;margin-bottom:12px;font-style:italic;}  
-.rc-name{font-size:13px;font-weight:700;}  
-.rc-loc{font-size:11px;color:var(--t3);}  
-.dl-box{background:linear-gradient(135deg,#0D1F0D,#111E11);border:1px solid rgba(61,255,122,.15);border-radius:28px;padding:56px 36px;text-align:center;position:relative;overflow:hidden;max-width:860px;margin:0 auto;}  
-.dl-box::before{content:'';position:absolute;top:-40%;left:-10%;width:120%;height:180%;background:radial-gradient(ellipse at 50% 0%,rgba(61,255,122,.07),transparent 60%);pointer-events:none;}  
-.dl-title{font-size:clamp(26px,5vw,42px);font-weight:700;margin-bottom:12px;position:relative;}  
-.dl-sub{font-size:15px;color:var(--t2);margin-bottom:36px;line-height:1.8;position:relative;}  
-.apk-btn{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,var(--g),var(--g2));color:#060906;font-family:'Noto Sans Devanagari',sans-serif;font-weight:800;font-size:17px;padding:18px 40px;border-radius:50px;text-decoration:none;transition:all .3s;box-shadow:0 0 40px rgba(61,255,122,.3);position:relative;}  
-.apk-btn:hover{transform:translateY(-3px);}  
-.apk-note{font-size:12px;color:var(--t3);margin-top:14px;position:relative;}  
-.warn{margin-top:18px;padding:14px;background:rgba(255,140,66,.05);border:1px solid rgba(255,140,66,.15);border-radius:12px;font-size:12px;color:var(--t3);position:relative;line-height:1.7;}  
-.cg{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px;}  
-.cc{background:var(--card);border:1px solid rgba(61,255,122,.07);border-radius:18px;padding:20px 24px;display:flex;align-items:center;gap:12px;flex:1;min-width:200px;text-decoration:none;color:inherit;transition:all .3s;}  
-.cc:hover{border-color:rgba(61,255,122,.3);transform:translateY(-2px);}  
-.cc-icon{font-size:26px;}  
-.cc-label{font-size:11px;color:var(--t3);font-weight:600;letter-spacing:1px;}  
-.cc-val{font-size:14px;font-weight:700;}  
-footer{border-top:1px solid rgba(61,255,122,.06);padding:36px 20px;text-align:center;}  
-.fl{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;margin-bottom:8px;}  
-.fl span{color:var(--g);}  
-.fs{font-size:13px;color:var(--t3);margin-bottom:20px;}  
-.flinks{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;}  
-.flinks a{font-size:13px;color:var(--t3);text-decoration:none;transition:color .2s;}  
-.flinks a:hover{color:var(--g);}  
-.fc2{font-size:11px;color:rgba(90,122,90,.4);}  
-.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(61,255,122,.08),transparent);margin:10px 0;}  
-.reveal{opacity:0;transform:translateY(28px);transition:all .7s ease;}  
-.reveal.visible{opacity:1;transform:translateY(0);}  
-.phone-float{display:flex;justify-content:center;padding:20px 20px 40px;}  
-.pm{width:240px;height:480px;background:linear-gradient(180deg,#0D1F0D,#060906);border-radius:38px;border:2px solid rgba(61,255,122,.15);box-shadow:0 0 0 8px #0D1A0D,0 0 0 10px rgba(61,255,122,.06),0 40px 80px rgba(0,0,0,.8);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:28px 18px;}  
-.pm-logo{font-size:54px;animation:floatY 3s ease-in-out infinite;}  
-.pm-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;text-align:center;}  
-.pm-title span{color:var(--g);}  
-.pm-tag{font-size:9px;color:var(--t3);letter-spacing:3px;}  
-.pm-bar{width:75%;height:4px;background:rgba(61,255,122,.12);border-radius:2px;overflow:hidden;}  
-.pm-fill{height:100%;background:linear-gradient(90deg,var(--g2),var(--g));border-radius:2px;animation:barFill 2s ease forwards;}  
-.pm-items{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;}  
-.pm-item{background:rgba(61,255,122,.06);border:1px solid rgba(61,255,122,.1);border-radius:10px;padding:6px 10px;font-size:18px;}  
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.8);}}  
-@keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}  
-@keyframes barFill{from{width:0}to{width:100%}}  
-@media(max-width:600px){.stats{gap:20px;}.stat-num{font-size:26px;}.dl-box{padding:36px 20px;}.apk-btn{font-size:15px;padding:15px 26px;}nav{padding:12px 16px;}}  
-</style>  
-</head>  
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Daily Basket 🧺 — ताज़ी सब्ज़ी 30 मिनट में | भोपालगढ़</title>
+<meta name="description" content="भोपालगढ़ का सबसे तेज़ ग्रोसरी डिलीवरी ऐप। ताज़ी सब्ज़ी, फल, दूध 30 मिनट में घर पर।"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Sans+Devanagari:wght@400;600;700;800&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--g:#3DFF7A;--g2:#00C44F;--bg:#060906;--card:#0D1A0D;--t:#F0FFF0;--t2:#A8C8A8;--t3:#5A7A5A;--gold:#D4AF37;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t);font-family:'Noto Sans Devanagari','DM Sans',sans-serif;overflow-x:hidden;}
+nav{position:fixed;top:38px;left:0;right:0;z-index:100;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,9,6,.88);backdrop-filter:blur(20px);border-bottom:1px solid rgba(61,255,122,.08);}
+.ticker{background:linear-gradient(90deg,#0D1F0D,#0A1A0A);border-bottom:1px solid rgba(61,255,122,.15);padding:9px 0;overflow:hidden;position:fixed;top:0;left:0;right:0;z-index:101;}
+.ticker-track{display:flex;animation:tickerScroll 25s linear infinite;white-space:nowrap;width:max-content;}
+.ticker-item{font-size:12px;color:var(--g);font-weight:600;padding:0 30px;display:inline-flex;align-items:center;gap:8px;}
+@keyframes tickerScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;}
+.nav-logo span{color:var(--g);}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--g),var(--g2));color:#060906;font-family:'Noto Sans Devanagari',sans-serif;font-weight:700;font-size:13px;padding:10px 20px;border-radius:50px;text-decoration:none;transition:all .3s;}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;padding:140px 40px 60px;overflow:hidden;}
+.hero-glow{position:absolute;top:-10%;left:30%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(61,255,122,.1) 0%,transparent 70%);pointer-events:none;}
+.hero-inner{display:flex;align-items:center;justify-content:space-between;gap:60px;max-width:1100px;width:100%;}
+.hero-text{flex:1;}
+.hero-right{flex-shrink:0;}
+@media(max-width:768px){
+  .hero{padding:120px 20px 60px;text-align:center;}
+  .hero-inner{flex-direction:column;align-items:center;}
+  .hero-text{text-align:center;}
+  .hero-right{display:none;}
+  .badge,.hero-btns,.stats{justify-content:center;}
+  nav{top:34px;}
+  .ticker-item{font-size:11px;}
+}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(61,255,122,.08);border:1px solid rgba(61,255,122,.2);border-radius:50px;padding:8px 18px;font-size:14px;font-weight:600;color:var(--g);margin-bottom:28px;}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--g);animation:pulse 1.5s infinite;}
+.hero h1{font-family:'Noto Sans Devanagari',sans-serif;font-size:clamp(40px,9vw,78px);font-weight:800;line-height:1.2;margin-bottom:20px;}
+.hero h1 span{color:var(--g);}
+.hero-sub{font-size:clamp(15px,2.5vw,18px);color:var(--t2);max-width:520px;line-height:1.9;margin-bottom:16px;}
+.hero-loc{font-size:14px;color:var(--t3);margin-bottom:36px;}
+.hero-loc span{color:var(--g);font-weight:600;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:50px;}
+.btn-p{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--g),var(--g2));color:#060906;font-family:'Noto Sans Devanagari',sans-serif;font-weight:700;font-size:16px;padding:16px 32px;border-radius:50px;text-decoration:none;transition:all .3s;box-shadow:0 0 30px rgba(61,255,122,.25);}
+.btn-p:hover{transform:translateY(-2px);}
+.btn-s{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--t);font-family:'Noto Sans Devanagari',sans-serif;font-weight:600;font-size:15px;padding:15px 28px;border-radius:50px;border:1px solid rgba(255,255,255,.15);text-decoration:none;transition:all .3s;}
+.btn-s:hover{border-color:rgba(61,255,122,.4);color:var(--g);}
+.stats{display:flex;gap:40px;justify-content:center;}
+.stat-num{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--g);}
+.stat-label{font-size:13px;color:var(--t3);margin-top:4px;}
+.sec{padding:80px 20px;max-width:1100px;margin:0 auto;}
+.sec-badge{display:inline-block;background:rgba(61,255,122,.08);border:1px solid rgba(61,255,122,.15);border-radius:50px;padding:6px 16px;font-size:12px;font-weight:700;color:var(--g);letter-spacing:1px;margin-bottom:14px;}
+.sec-title{font-size:clamp(28px,5vw,46px);font-weight:700;line-height:1.25;margin-bottom:14px;}
+.sec-sub{font-size:15px;color:var(--t2);line-height:1.8;max-width:500px;}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:44px;}
+.fc{background:var(--card);border:1px solid rgba(61,255,122,.07);border-radius:22px;padding:26px;transition:all .3s;}
+.fc:hover{border-color:rgba(61,255,122,.2);transform:translateY(-4px);}
+.fc-icon{font-size:36px;margin-bottom:14px;display:block;}
+.fc-title{font-size:17px;font-weight:700;margin-bottom:8px;}
+.fc-desc{font-size:13px;color:var(--t2);line-height:1.8;}
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:44px;}
+.step{text-align:center;padding:20px;}
+.step-n{width:60px;height:60px;border-radius:18px;background:linear-gradient(135deg,#1A3320,#0E2318);border:1.5px solid rgba(61,255,122,.3);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--g);margin:0 auto 14px;}
+.step-t{font-size:16px;font-weight:700;margin-bottom:8px;}
+.step-d{font-size:13px;color:var(--t2);line-height:1.7;}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin-top:36px;}
+.pc{background:var(--card);border:1px solid rgba(61,255,122,.07);border-radius:18px;padding:18px 12px;text-align:center;transition:all .3s;}
+.pc:hover{transform:translateY(-4px);border-color:rgba(61,255,122,.2);}
+.pc-e{font-size:40px;display:block;margin-bottom:8px;}
+.pc-tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:50px;margin-bottom:7px;}
+.tf{background:rgba(61,255,122,.1);color:var(--g);border:1px solid rgba(61,255,122,.2);}
+.to{background:rgba(0,196,79,.1);color:#00C44F;border:1px solid rgba(0,196,79,.2);}
+.tl{background:rgba(212,175,55,.1);color:var(--gold);border:1px solid rgba(212,175,55,.2);}
+.pc-n{font-size:13px;font-weight:600;margin-bottom:4px;}
+.pc-p{font-size:13px;font-weight:700;color:var(--g);}
+.rg{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:36px;}
+.rc{background:var(--card);border:1px solid rgba(61,255,122,.07);border-radius:18px;padding:20px;}
+.rc-stars{color:var(--gold);font-size:14px;margin-bottom:10px;}
+.rc-text{font-size:13px;color:var(--t2);line-height:1.8;margin-bottom:12px;font-style:italic;}
+.rc-name{font-size:13px;font-weight:700;}
+.rc-loc{font-size:11px;color:var(--t3);}
+.dl-box{background:linear-gradient(135deg,#0D1F0D,#111E11);border:1px solid rgba(61,255,122,.15);border-radius:28px;padding:56px 36px;text-align:center;position:relative;overflow:hidden;max-width:860px;margin:0 auto;}
+.dl-box::before{content:'';position:absolute;top:-40%;left:-10%;width:120%;height:180%;background:radial-gradient(ellipse at 50% 0%,rgba(61,255,122,.07),transparent 60%);pointer-events:none;}
+.dl-title{font-size:clamp(26px,5vw,42px);font-weight:700;margin-bottom:12px;position:relative;}
+.dl-sub{font-size:15px;color:var(--t2);margin-bottom:36px;line-height:1.8;position:relative;}
+.apk-btn{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,var(--g),var(--g2));color:#060906;font-family:'Noto Sans Devanagari',sans-serif;font-weight:800;font-size:17px;padding:18px 40px;border-radius:50px;text-decoration:none;transition:all .3s;box-shadow:0 0 40px rgba(61,255,122,.3);position:relative;}
+.apk-btn:hover{transform:translateY(-3px);}
+.apk-note{font-size:12px;color:var(--t3);margin-top:14px;position:relative;}
+.warn{margin-top:18px;padding:14px;background:rgba(255,140,66,.05);border:1px solid rgba(255,140,66,.15);border-radius:12px;font-size:12px;color:var(--t3);position:relative;line-height:1.7;}
+.cg{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px;}
+.cc{background:var(--card);border:1px solid rgba(61,255,122,.07);border-radius:18px;padding:20px 24px;display:flex;align-items:center;gap:12px;flex:1;min-width:200px;text-decoration:none;color:inherit;transition:all .3s;}
+.cc:hover{border-color:rgba(61,255,122,.3);transform:translateY(-2px);}
+.cc-icon{font-size:26px;}
+.cc-label{font-size:11px;color:var(--t3);font-weight:600;letter-spacing:1px;}
+.cc-val{font-size:14px;font-weight:700;}
+footer{border-top:1px solid rgba(61,255,122,.06);padding:36px 20px;text-align:center;}
+.fl{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;margin-bottom:8px;}
+.fl span{color:var(--g);}
+.fs{font-size:13px;color:var(--t3);margin-bottom:20px;}
+.flinks{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;}
+.flinks a{font-size:13px;color:var(--t3);text-decoration:none;transition:color .2s;}
+.flinks a:hover{color:var(--g);}
+.fc2{font-size:11px;color:rgba(90,122,90,.4);}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(61,255,122,.08),transparent);margin:10px 0;}
+.reveal{opacity:0;transform:translateY(28px);transition:all .7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.phone-float{display:flex;justify-content:center;padding:20px 20px 40px;}
+.pm{width:240px;height:480px;background:linear-gradient(180deg,#0D1F0D,#060906);border-radius:38px;border:2px solid rgba(61,255,122,.15);box-shadow:0 0 0 8px #0D1A0D,0 0 0 10px rgba(61,255,122,.06),0 40px 80px rgba(0,0,0,.8);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:28px 18px;}
+.pm-logo{font-size:54px;animation:floatY 3s ease-in-out infinite;}
+.pm-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;text-align:center;}
+.pm-title span{color:var(--g);}
+.pm-tag{font-size:9px;color:var(--t3);letter-spacing:3px;}
+.pm-bar{width:75%;height:4px;background:rgba(61,255,122,.12);border-radius:2px;overflow:hidden;}
+.pm-fill{height:100%;background:linear-gradient(90deg,var(--g2),var(--g));border-radius:2px;animation:barFill 2s ease forwards;}
+.pm-items{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;}
+.pm-item{background:rgba(61,255,122,.06);border:1px solid rgba(61,255,122,.1);border-radius:10px;padding:6px 10px;font-size:18px;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.8);}}
+@keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+@keyframes barFill{from{width:0}to{width:100%}}
+@media(max-width:600px){.stats{gap:20px;}.stat-num{font-size:26px;}.dl-box{padding:36px 20px;}.apk-btn{font-size:15px;padding:15px 26px;}nav{padding:12px 16px;}}
+</style>
+</head>
 <body>
-<nav>  
-  <div class="nav-logo">Daily <span>Basket</span></div>  
-  <a href="#download" class="nav-cta">📲 डाउनलोड करो</a>  
+
+<nav>
+  <div class="nav-logo">Daily <span>Basket</span></div>
+  <a href="#download" class="nav-cta">📲 डाउनलोड करो</a>
 </nav>
 
-<section class="hero">  
-  <div class="hero-glow"></div>  
-  <div class="badge"><span class="badge-dot"></span> भोपालगढ़ का नंबर १ ग्रोसरी ऐप</div>  
-  <h1>ताज़ी सब्ज़ी,<br/><span>३० मिनट</span> में!</h1>  
-  <p class="hero-sub">घर बैठे मंगाओ ताज़ी सब्ज़ी, फल, दूध और बहुत कुछ।<br/>ताज़ा, सस्ता, तेज़!</p>  
-  <p class="hero-loc">📍 अभी उपलब्ध: <span>भोपालगढ़, राजस्थान</span></p>  
-  <div class="hero-btns">  
-    <a href="#download" class="btn-p">📲 ऐप डाउनलोड करो</a>  
-    <a href="#features" class="btn-s">✨ फीचर देखो</a>  
-  </div>  
-  <div class="stats">  
-    <div><div class="stat-num">30</div><div class="stat-label">मिनट डिलीवरी</div></div>  
-    <div><div class="stat-num">100+</div><div class="stat-label">प्रोडक्ट</div></div>  
-    <div><div class="stat-num">₹0</div><div class="stat-label">₹299 से ऊपर फ्री</div></div>  
-  </div>  
-</section>
-
-<div class="phone-float reveal">  
-  <div class="pm">  
-    <span class="pm-logo">🧺</span>  
-    <div class="pm-title">Daily <span>Basket</span></div>  
-    <div class="pm-tag">FRESH · LOCAL · ECO</div>  
-    <div class="pm-bar"><div class="pm-fill"></div></div>  
-    <div class="pm-items">  
-      <div class="pm-item">🍅</div><div class="pm-item">🥦</div><div class="pm-item">🍎</div>  
-      <div class="pm-item">🥛</div><div class="pm-item">🧅</div><div class="pm-item">🥕</div>  
-    </div>  
-  </div>  
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">🌿 भोपालगढ़ का नंबर #1 ग्रोसरी ऐप</span>
+    <span class="ticker-item">⚡ 30 मिनट में डिलीवरी</span>
+    <span class="ticker-item">🎉 पहले ऑर्डर पर ₹30 की छूट — कोड: WELCOME30</span>
+    <span class="ticker-item">🥦 100% ताज़ा और लोकल</span>
+    <span class="ticker-item">🚴 लाइव ट्रैकिंग</span>
+    <span class="ticker-item">💚 ₹299 से ऊपर मुफ़्त डिलीवरी</span>
+    <span class="ticker-item">🌿 भोपालगढ़ का नंबर #1 ग्रोसरी ऐप</span>
+    <span class="ticker-item">⚡ 30 मिनट में डिलीवरी</span>
+    <span class="ticker-item">🎉 पहले ऑर्डर पर ₹५० की छूट — कोड: WELCOME50</span>
+    <span class="ticker-item">🥦 100% ताज़ा और लोकल</span>
+    <span class="ticker-item">🚴 लाइव ट्रैकिंग</span>
+    <span class="ticker-item">💚 ₹299 से ऊपर मुफ़्त डिलीवरी</span>
+  </div>
 </div>
 
-<section class="sec reveal" id="features">  
-  <div class="sec-badge">फीचर</div>  
-  <div class="sec-title">क्यों चुनें Daily Basket?</div>  
-  <p class="sec-sub">सबसे तेज़, सबसे ताज़ा, सबसे सस्ता — भोपालगढ़ की अपनी ग्रोसरी डिलीवरी!</p>  
-  <div class="fg">  
-    <div class="fc"><span class="fc-icon">⚡</span><div class="fc-title">30 मिनट डिलीवरी</div><p class="fc-desc">ऑर्डर करो और 30 मिनट में ताज़ी ग्रोसरी आपके दरवाज़े पर। गारंटीड!</p></div>  
-    <div class="fc"><span class="fc-icon">🌱</span><div class="fc-title">100% ताज़ा और लोकल</div><p class="fc-desc">सीधे लोकल किसानों से — कोई कोल्ड स्टोरेज नहीं, ताज़गी की पूरी गारंटी।</p></div>  
-    <div class="fc"><span class="fc-icon">💰</span><div class="fc-title">बेस्ट दाम</div><p class="fc-desc">मार्केट से सस्ते दाम। ₹299 से ऊपर के ऑर्डर पर मुफ़्त डिलीवरी!</p></div>  
-    <div class="fc"><span class="fc-icon">📱</span><div class="fc-title">आसान ऐप</div><p class="fc-desc">सरल और तेज़ ऐप। OTP से लॉगिन, कार्ट में ऐड करो, ऑर्डर दो — बस!</p></div>  
-    <div class="fc"><span class="fc-icon">🚴</span><div class="fc-title">लाइव ट्रैकिंग</div><p class="fc-desc">अपना ऑर्डर रियल-टाइम में ट्रैक करो। राइडर कहाँ है — सब दिखेगा!</p></div>  
-    <div class="fc"><span class="fc-icon">🎁</span><div class="fc-title">इको पॉइंट्स और ऑफर</div><p class="fc-desc">हर ऑर्डर पर Green Points मिलते हैं। कूपन, डिस्काउंट और स्पेशल ऑफर भी!</p></div>  
-  </div>  
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="badge"><span class="badge-dot"></span> भोपालगढ़ का नंबर #1 ग्रोसरी ऐप</div>
+      <h1>ताज़ी सब्ज़ी,<br/><span>30 मिनट</span> में!</h1>
+      <p class="hero-sub">घर बैठे मंगाओ ताज़ी सब्ज़ी, फल, दूध और बहुत कुछ।<br/>ताज़ा, सस्ता, तेज़!</p>
+      <p class="hero-loc">📍 अभी उपलब्ध: <span>भोपालगढ़, राजस्थान</span></p>
+      <div class="hero-btns">
+        <a href="#download" class="btn-p">📲 ऐप डाउनलोड करो</a>
+        <a href="#features" class="btn-s">✨ फीचर देखो</a>
+      </div>
+      <div class="stats">
+        <div><div class="stat-num">३०</div><div class="stat-label">मिनट डिलीवरी</div></div>
+        <div><div class="stat-num">१००+</div><div class="stat-label">प्रोडक्ट</div></div>
+        <div><div class="stat-num">₹०</div><div class="stat-label">₹299 से ऊपर फ्री</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="pm">
+        <span class="pm-logo">🧺</span>
+        <div class="pm-title">Daily <span>Basket</span></div>
+        <div class="pm-tag">FRESH · LOCAL · ECO</div>
+        <div class="pm-bar"><div class="pm-fill"></div></div>
+        <div class="pm-items">
+          <div class="pm-item">🍅</div><div class="pm-item">🥦</div><div class="pm-item">🍎</div>
+          <div class="pm-item">🥛</div><div class="pm-item">🧅</div><div class="pm-item">🥕</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="sec reveal">  
-  <div class="sec-badge">कैसे काम करता है</div>  
-  <div class="sec-title">4 आसान स्टेप्स में ऑर्डर करो</div>  
-  <div class="sg">  
-    <div class="step"><div class="step-n">1</div><div class="step-t">ऐप डाउनलोड करो</div><p class="step-d">नीचे बटन से APK डाउनलोड करो और इंस्टॉल करो। बिल्कुल मुफ़्त!</p></div>  
-    <div class="step"><div class="step-n">2</div><div class="step-t">लॉगिन करो</div><p class="step-d">अपना नाम और मोबाइल नंबर दो। OTP से वेरीफाई करो — 30 सेकंड में रेडी!</p></div>  
-    <div class="step"><div class="step-n">3</div><div class="step-t">ऑर्डर करो</div><p class="step-d">प्रोडक्ट चुनो, कार्ट में ऐड करो, पता दो और ऑर्डर प्लेस करो!</p></div>  
-    <div class="step"><div class="step-n">4</div><div class="step-t">एन्जॉय करो! 🎉</div><p class="step-d">30 मिनट में ताज़ी ग्रोसरी घर पर! लाइव ट्रैकिंग भी कर सकते हो।</p></div>  
-  </div>  
+<section class="sec reveal" id="features">
+  <div class="sec-badge">फीचर</div>
+  <div class="sec-title">क्यों चुनें Daily Basket?</div>
+  <p class="sec-sub">सबसे तेज़, सबसे ताज़ा, सबसे सस्ता — भोपालगढ़ की अपनी ग्रोसरी डिलीवरी!</p>
+  <div class="fg">
+    <div class="fc"><span class="fc-icon">⚡</span><div class="fc-title">३० मिनट डिलीवरी</div><p class="fc-desc">ऑर्डर करो और 30 मिनट में ताज़ी ग्रोसरी आपके दरवाज़े पर। गारंटीड!</p></div>
+    <div class="fc"><span class="fc-icon">🌱</span><div class="fc-title">१००% ताज़ा और लोकल</div><p class="fc-desc">सीधे लोकल किसानों से — कोई कोल्ड स्टोरेज नहीं, ताज़गी की पूरी गारंटी।</p></div>
+    <div class="fc"><span class="fc-icon">💰</span><div class="fc-title">बेस्ट दाम</div><p class="fc-desc">मार्केट से सस्ते दाम। ₹299 से ऊपर के ऑर्डर पर मुफ़्त डिलीवरी!</p></div>
+    <div class="fc"><span class="fc-icon">📱</span><div class="fc-title">आसान ऐप</div><p class="fc-desc">सरल और तेज़ ऐप। OTP से लॉगिन, कार्ट में ऐड करो, ऑर्डर दो — बस!</p></div>
+    <div class="fc"><span class="fc-icon">🚴</span><div class="fc-title">लाइव ट्रैकिंग</div><p class="fc-desc">अपना ऑर्डर रियल-टाइम में ट्रैक करो। राइडर कहाँ है — सब दिखेगा!</p></div>
+    <div class="fc"><span class="fc-icon">🎁</span><div class="fc-title">इको पॉइंट्स और ऑफर</div><p class="fc-desc">हर ऑर्डर पर Green Points मिलते हैं। कूपन, डिस्काउंट और स्पेशल ऑफर भी!</p></div>
+  </div>
 </section>
 
-<section class="sec reveal">  
-  <div class="sec-badge">प्रोडक्ट</div>  
-  <div class="sec-title">क्या क्या मिलता है?</div>  
-  <p class="sec-sub">100+ ताज़े प्रोडक्ट — सब्ज़ी, फल, दूध और रेडी फूड!</p>  
-  <div class="pg">  
-    <div class="pc"><span class="pc-e">🍅</span><span class="pc-tag tf">ताज़ा</span><div class="pc-n">टमाटर</div><div class="pc-p"></div></div>  
-    <div class="pc"><span class="pc-e">🥬</span><span class="pc-tag to">ऑर्गेनिक</span><div class="pc-n">पालक</div><div class="pc-p"></div></div>  
-    <div class="pc"><span class="pc-e">🥕</span><span class="pc-tag tl">लोकल</span><div class="pc-n">गाजर</div><div class="pc-p"></div></div>  
-    <div class="pc"><span class="pc-e">🧅</span><span class="pc-tag tl">लोकल</span><div class="pc-n">प्याज़</div><div class="pc-p"></div></div>  
-    <div class="pc"><span class="pc-e">🍎</span><span class="pc-tag tf">ताज़ा</span><div class="pc-n">सेब</div><div class="pc-p"></div></div>  
-    <div class="pc"><span class="pc-e">🥛</span><span class="pc-tag tf">ताज़ा</span><div class="pc-n">दूध</div><div class="pc-p"></div></div>  
-    <div class="pc"><span class="pc-e">🧈</span><span class="pc-tag to">ऑर्गेनिक</span><div class="pc-n">पनीर</div><div class="pc-p"></div></div>  
-    <div class="pc"><span class="pc-e">🍌</span><span class="pc-tag to">ऑर्गेनिक</span><div class="pc-n">केला</div><div class="pc-p"></div></div>  
-  </div>  
+<section class="sec reveal">
+  <div class="sec-badge">कैसे काम करता है</div>
+  <div class="sec-title">४ आसान स्टेप्स में ऑर्डर करो</div>
+  <div class="sg">
+    <div class="step"><div class="step-n">१</div><div class="step-t">ऐप डाउनलोड करो</div><p class="step-d">नीचे बटन से APK डाउनलोड करो और इंस्टॉल करो। बिल्कुल मुफ़्त!</p></div>
+    <div class="step"><div class="step-n">२</div><div class="step-t">लॉगिन करो</div><p class="step-d">अपना नाम और मोबाइल नंबर दो। OTP से वेरीफाई करो — 30 सेकंड में रेडी!</p></div>
+    <div class="step"><div class="step-n">३</div><div class="step-t">ऑर्डर करो</div><p class="step-d">प्रोडक्ट चुनो, कार्ट में ऐड करो, पता दो और ऑर्डर प्लेस करो!</p></div>
+    <div class="step"><div class="step-n">४</div><div class="step-t">एन्जॉय करो! 🎉</div><p class="step-d">30 मिनट में ताज़ी ग्रोसरी घर पर! लाइव ट्रैकिंग भी कर सकते हो।</p></div>
+  </div>
 </section>
 
-<section class="sec reveal">  
-  <div class="sec-badge">समीक्षा</div>  
-  <div class="sec-title">लोग क्या कहते हैं?</div>  
-  <div class="rg">  
-    <div class="rc"><div class="rc-stars">⭐⭐⭐⭐⭐</div><p class="rc-text">"बहुत तेज़ डिलीवरी! 15 मिनट में ताज़ी सब्ज़ी आ गई। क्वालिटी बिल्कुल मार्केट जैसी — actually बेहतर!"</p><div class="rc-name">HANSRAJ DEORA</div><div class="rc-loc">📍 भोपालगढ़</div></div>  
-    <div class="rc"><div class="rc-stars">⭐⭐⭐⭐⭐</div><p class="rc-text">"ऐप बहुत आसान है। पहली बार में ही समझ आ गया। दाम भी ठीक हैं। रोज़ इस्तेमाल करता हूँ!"</p><div class="rc-name">BHUDHARAM BHATI</div><div class="rc-loc">📍 भोपालगढ़</div></div>  
-    <div class="rc"><div class="rc-stars">⭐⭐⭐⭐⭐</div><p class="rc-text">"घर पे बैठे ताज़ी सब्ज़ी मिलना बहुत सुविधाजनक है। लाइव ट्रैकिंग फीचर सबसे बेस्ट है!"</p><div class="rc-name">ANIL DEORA</div><div class="rc-loc">📍 भोपालगढ़</div></div>  
-  </div>  
+<section class="sec reveal">
+  <div class="sec-badge">प्रोडक्ट</div>
+  <div class="sec-title">क्या क्या मिलता है?</div>
+  <p class="sec-sub">१००+ ताज़े प्रोडक्ट — सब्ज़ी, फल, दूध और रेडी फूड!</p>
+  <div class="pg">
+    <div class="pc"><span class="pc-e">🍅</span><span class="pc-tag tf">ताज़ा</span><div class="pc-n">टमाटर</div><div class="pc-p"></div></div>
+    <div class="pc"><span class="pc-e">🥬</span><span class="pc-tag to">ऑर्गेनिक</span><div class="pc-n">पालक</div><div class="pc-p"></div></div>
+    <div class="pc"><span class="pc-e">🥕</span><span class="pc-tag tl">लोकल</span><div class="pc-n">गाजर</div><div class="pc-p"></div></div>
+    <div class="pc"><span class="pc-e">🧅</span><span class="pc-tag tl">लोकल</span><div class="pc-n">प्याज़</div><div class="pc-p"></div></div>
+    <div class="pc"><span class="pc-e">🍎</span><span class="pc-tag tf">ताज़ा</span><div class="pc-n">सेब</div><div class="pc-p"></div></div>
+    <div class="pc"><span class="pc-e">🥛</span><span class="pc-tag tf">ताज़ा</span><div class="pc-n">दूध</div><div class="pc-p"></div></div>
+    <div class="pc"><span class="pc-e">🧈</span><span class="pc-tag to">ऑर्गेनिक</span><div class="pc-n">पनीर</div><div class="pc-p"></div></div>
+    <div class="pc"><span class="pc-e">🍌</span><span class="pc-tag to">ऑर्गेनिक</span><div class="pc-n">केला</div><div class="pc-p"></div></div>
+  </div>
 </section>
 
-<div class="sec reveal" id="download">  
-  <div class="dl-box">  
-    <div class="dl-title">📲 अभी डाउनलोड करो!</div>  
-    <p class="dl-sub">मुफ़्त में डाउनलोड करो और पहले ऑर्डर पर <strong style="color:var(--g)">₹30 की छूट</strong> पाओ!<br/>कोड: <strong style="color:var(--g)">WELCOME30</strong></p>  
-    <a href="/Daily Basket.apk" download="DailyBasket.apk" class="apk-btn" id="dlbtn">  
-      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>  
-      Android APK डाउनलोड करो  
-    </a>  
-    <p class="apk-note">📦 साइज़: ~2.3 MB · Android 5.0+ · हमेशा के लिए मुफ़्त</p>  
-    <div class="warn">⚠️ इंस्टॉल करते वक्त "Unknown Sources" allow करना होगा —<br/>Settings → Security → Unknown Sources ✓ — यह बिल्कुल safe है।</div>  
-  </div>  
+<section class="sec reveal">
+  <div class="sec-badge">समीक्षा</div>
+  <div class="sec-title">लोग क्या कहते हैं?</div>
+  <div class="rg">
+    <div class="rc"><div class="rc-stars">⭐⭐⭐⭐⭐</div><p class="rc-text">"बहुत तेज़ डिलीवरी! 10 मिनट में ताज़ी सब्ज़ी आ गई। क्वालिटी बिल्कुल मार्केट जैसी — actually बेहतर!"</p><div class="rc-name">मुकेश</div><div class="rc-loc">📍 भोपालगढ़</div></div>
+    <div class="rc"><div class="rc-stars">⭐⭐⭐⭐⭐</div><p class="rc-text">"ऐप बहुत आसान है। पहली बार में ही समझ आ गया। दाम भी ठीक हैं। रोज़ इस्तेमाल करता हूँ!"</p><div class="rc-name">बुधाराम</div><div class="rc-loc">📍 भोपालगढ़</div></div>
+    <div class="rc"><div class="rc-stars">⭐⭐⭐⭐⭐</div><p class="rc-text">"घर पे बैठे ताज़ी सब्ज़ी मिलना बहुत सुविधाजनक है। लाइव ट्रैकिंग फीचर सबसे बेस्ट है!"</p><div class="rc-name">अनिल</div><div class="rc-loc">📍 भोपालगढ़</div></div>
+  </div>
+</section>
+
+<div class="sec reveal" id="download">
+  <div class="dl-box">
+    <div class="dl-title">📲 अभी डाउनलोड करो!</div>
+    <p class="dl-sub">मुफ़्त में डाउनलोड करो और पहले ऑर्डर पर <strong style="color:var(--g)">₹30 की छूट</strong> पाओ!<br/>कोड: <strong style="color:var(--g)">WELCOME30</strong></p>
+    <a href="/Daily Basket.apk" download="DailyBasket.apk" class="apk-btn" id="dlbtn">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Android APK डाउनलोड करो
+    </a>
+    <p class="apk-note">📦 साइज़: ~2.3 MB · Android 5.0+ · हमेशा के लिए मुफ़्त</p>
+    <div class="warn">⚠️ इंस्टॉल करते वक्त "Unknown Sources" allow करना होगा —<br/>Settings → Security → Unknown Sources ✓ — यह बिल्कुल safe है।</div>
+  </div>
 </div>
 
-<section class="sec reveal">  
-  <div class="sec-badge">संपर्क करें</div>  
-  <div class="sec-title">कोई सवाल? हमसे बात करो!</div>  
-  <div class="cg">  
-    <a href="https://wa.me/916375565339" class="cc" target="_blank"><span class="cc-icon">💬</span><div><div class="cc-label">WHATSAPP</div><div class="cc-val">+91 63755 65339</div></div></a>  
-    <a href="tel:+916375565339" class="cc"><span class="cc-icon">📞</span><div><div class="cc-label">फ़ोन करो</div><div class="cc-val">+91 63755 65339</div></div></a>  
-    <div class="cc"><span class="cc-icon">📍</span><div><div class="cc-label">पता</div><div class="cc-val">भोपालगढ़, राजस्थान</div></div></div>  
-    <div class="cc"><span class="cc-icon">🕐</span><div><div class="cc-label">डिलीवरी समय</div><div class="cc-val">सुबह 6 – रात 9 बजे</div></div></div>  
-  </div>  
+<section class="sec reveal">
+  <div class="sec-badge">संपर्क करें</div>
+  <div class="sec-title">कोई सवाल? हमसे बात करो!</div>
+  <div class="cg">
+    <a href="https://wa.me/916375565339" class="cc" target="_blank"><span class="cc-icon">💬</span><div><div class="cc-label">WHATSAPP</div><div class="cc-val">+91 63755 65339</div></div></a>
+    <a href="tel:+916375565339" class="cc"><span class="cc-icon">📞</span><div><div class="cc-label">फ़ोन करो</div><div class="cc-val">+91 63755 65339</div></div></a>
+    <div class="cc"><span class="cc-icon">📍</span><div><div class="cc-label">पता</div><div class="cc-val">भोपालगढ़, राजस्थान</div></div></div>
+    <div class="cc"><span class="cc-icon">🕐</span><div><div class="cc-label">डिलीवरी समय</div><div class="cc-val">सुबह 6 – रात 9 बजे</div></div></div>
+  </div>
 </section>
 
 <div class="divider"></div>
 
-<footer>  
-  <div class="fl">Daily <span>Basket</span></div>  
-  <p class="fs">ताज़ा · लोकल · इको — भोपालगढ़, राजस्थान</p>  
-  <div class="flinks">  
-    <a href="#features">फीचर</a>  
-    <a href="#download">डाउनलोड</a>  
-    <a href="https://wa.me/916375565339">सहायता</a>  
-    <a href="https://daily-basket-xi.vercel.app">ऐप खोलो</a>  
-  </div>  
-  <p class="fc2">© 2026 Daily Basket · MADE WITH 💚 BHOPALGARH</p>  
+<footer>
+  <div class="fl">Daily <span>Basket</span></div>
+  <p class="fs">ताज़ा · लोकल · इको — भोपालगढ़, राजस्थान</p>
+  <div class="flinks">
+    <a href="#features">फीचर</a>
+    <a href="#download">डाउनलोड</a>
+    <a href="https://wa.me/916375565339">सहायता</a>
+    <a href="https://daily-basket-xi.vercel.app">ऐप खोलो</a>
+  </div>
+  <p class="fc2">© 2026 Daily Basket · MADE IN 💚 BHOPALGARH</p>
 </footer>
 
-<script>  
-const obs=new IntersectionObserver(entries=>{  
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});  
-},{threshold:0.1});  
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));  
-document.getElementById('dlbtn').addEventListener('click',function(){  
-  this.innerHTML='⬇️ डाउनलोड हो रहा है...';  
-  setTimeout(()=>{this.innerHTML='✅ डाउनलोड हुआ! इंस्टॉल करो';},2000);  
-});  
+<script>
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.getElementById('dlbtn').addEventListener('click',function(){
+  this.innerHTML='⬇️ डाउनलोड हो रहा है...';
+  setTimeout(()=>{this.innerHTML='✅ डाउनलोड हुआ! इंस्टॉल करो';},2000);
+});
 </script>
-
-</body>  
+</body>
 </html>
-
